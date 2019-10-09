@@ -4,31 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <title>Интерфейсы для функций</title>	
-
 	
-<script language="JavaScript" type="text/javascript">	
-	
-	function multi(){
+  <script language="JavaScript" type="text/javascript">	
+		function multi(){
 		var multi_1, result;
 		multi_1 = document.getElementById('inp_1').value;
 		    
-	function isPalindrome(multi_1) {
-    var res = "Да, это палиндром.";
-    multi_1 = multi_1.toString().toLowerCase().replace(/\s/g,'');
-    for (var i=0, j=parseInt(multi_1.length/2), k=multi_1.length-1; i<j; i++, k--) {
-      if (multi_1.charAt(i) != multi_1.charAt(k)) {
+	  function isPalindrome(multi_1) {
+      var res = "Да, это палиндром.";
+      multi_1 = multi_1.toString().toLowerCase().replace(/\s/g,'');
+      for (var i=0, j=parseInt(multi_1.length/2), k=multi_1.length-1; i<j; i++, k--) {
+        if (multi_1.charAt(i) != multi_1.charAt(k)) {
         res = "Увы, это не палиндром.";
         break;
+        }
       }
+      return res;
     }
-    return res;
-  }
 		result = isPalindrome(multi_1);
 		document.getElementById('result_multi').innerHTML = result;
-	}
+	  }
 	
 	function multi2(){
 		var multi_12, multi_22, multi_32, result2;
@@ -40,28 +38,28 @@
 		multi_32 = document.getElementById('inp_32').value;
 		multi_32 = parseInt(multi_32);
     
-	function substr(multi_12, multi_22, multi_32) {
-  if (multi_32 < 0) {
-    multi_32 = 1;
-  }
-  if (multi_22 < 0) {
-    multi_22 = 0;
-  }
-  if (multi_32 === 0 || multi_22 > multi_12.length) {
-    return '';
-  }
-  if (multi_22 + multi_32-1 > multi_12.length) {
-    multi_32 = multi_12.length - multi_22;
-  }
-  if (typeof multi_12 === 'string' && typeof multi_22 === 'number' && typeof multi_32 === 'number') {
-    let result2 = '';
-    for (let i = 0; i < multi_32; i += 1) {
-      result2 += multi_12[multi_22 + i];
+	  function substr(multi_12, multi_22, multi_32) {
+      if (multi_32 < 0) {
+        multi_32 = 1;
+      }
+      if (multi_22 < 0) {
+        multi_22 = 0;
+      }
+    if (multi_32 === 0 || multi_22 > multi_12.length) {
+      return '';
     }
-    return result2;
-  }
-  return 'Check the input data!';
-}
+    if (multi_22 + multi_32-1 > multi_12.length) {
+      multi_32 = multi_12.length - multi_22;
+    }
+    if (typeof multi_12 === 'string' && typeof multi_22 === 'number' && typeof multi_32 === 'number') {
+      let result2 = '';
+      for (let i = 0; i < multi_32; i += 1) {
+      result2 += multi_12[multi_22 + i];
+      }
+      return result2;
+    }
+    return 'Check the input data!';
+    }
 		result = substr(multi_12, multi_22, multi_32);
 		document.getElementById('result_multi2').innerHTML = result;
 	}
@@ -70,91 +68,83 @@
 		var multi_13, result3;
 		multi_13 = document.getElementById('inp_13').value;
 	
-function dnaToRna(multi_13) {
-
-let rna = "";
-for (let i = 0; i < multi_13.length; i += 1) {
-if (multi_13.length === 0) {
-return '';
-} else if (multi_13[i] === "G") {
-rna += "C";
-} else if (multi_13[i] === "C") {
-rna += "G";
-} else if (multi_13[i] === "T") {
-rna += "A";
-} else if (multi_13[i] === "A") {
-rna += "U";
-} else {
-return null;
-}
-}
-return rna;
-}	
-	
-		result = dnaToRna(multi_13);
+    function dnaToRna(multi_13) {
+      let rna = "";
+      for (let i = 0; i < multi_13.length; i += 1) {
+       if (multi_13.length === 0) {
+       return '';
+      } 
+      else if (multi_13[i] === "G") {
+        rna += "C";
+      }
+      else if (multi_13[i] === "C") {
+        rna += "G";
+      } 
+      else if (multi_13[i] === "T") {
+        rna += "A";
+      }
+      else if (multi_13[i] === "A") {
+        rna += "U";
+      } 
+      else {
+        return null;
+      }
+    }
+    return rna;
+  }	
+			result = dnaToRna(multi_13);
 		document.getElementById('result_multi3').innerHTML = result;
 	}
-
 	</script>
   </head>
+  
   <body>
-<div class="container">
-   <div class="calc">
-    <div class="container-fluid">
-	<div class="row">
+    <div class="container">
+      <div class="calc">
+        <div class="container-fluid">
+	        <div class="row">
+	        	<div class="col-md-4">
+		      	<h2>Является ли слово палиндромом?</h2>
+			        <p>
+			          <div class="form-group">
+                   <label for="inp_1">Введите строку:</label> 
+                   <input type="text" class="form-control" id="inp_1">
+                </div>
+                <button onclick="multi()" class="btn btn-primary">Проверить на палиндромность</button>
+                <hr>
+                Рeзультат: <span id="result_multi"></span>
+			        </p>
+					</div>
+          
 		<div class="col-md-4">
-			<h2>
-				Является ли слово палиндромом?
-			</h2>
-			<p>
-			<div class="form-group">
-                           <label for="inp_1">Введите строку:</label> 
-                           <input type="text" class="form-control" id="inp_1">
-                        </div>
-                           <button onclick="multi()" class="btn btn-primary">Проверить на палиндромность</button>
-                    
-                    <hr>
-                    
-                        Рeзультат: <span id="result_multi"></span>
-			</p>
-			
+			<h2>Осуществление функции substr</h2>
+			  <p>
+				  <div class="form-group">
+            <label for="inp_12">Введите строку:</label> 
+            <input type="text" class="form-control" id="inp_12">
+            <label for="inp_22">Введите начальный индекс:</label> 
+            <input type="text" class="form-control" id="inp_22">
+						<label for="inp_32">Введите конечный индекс:</label> 
+            <input type="text" class="form-control" id="inp_32">
+          </div>
+          <button onclick="multi2()" class="btn btn-primary">Возвратить подстроку</button>
+          <hr>
+          Рeзультат: <span id="result_multi2"></span>
+			  </p>
+		 </div>
+        
+		<div class="col-md-4">
+			<h2>Конвертер ДНК - РНК</h2>
+			  <p>
+				  <div class="form-group">
+            <label for="inp_13">Введите ДНК-код:</label> 
+            <input type="text" class="form-control" id="inp_13">
+           </div>
+           <button onclick="multi3()" class="btn btn-primary">Получить РНК-код</button>
+           <hr>
+           Рeзультат: <span id="result_multi3"></span>
+			  </p>
 		</div>
-		<div class="col-md-4">
-			<h2>
-				Осуществление функции substr
-			</h2>
-			<p>
-				<div class="form-group">
-                           <label for="inp_12">Введите строку:</label> 
-                           <input type="text" class="form-control" id="inp_12">
-                           <label for="inp_22">Введите начальный индекс:</label> 
-                           <input type="text" class="form-control" id="inp_22">
-						   <label for="inp_32">Введите конечный индекс:</label> 
-                           <input type="text" class="form-control" id="inp_32">
-                        </div>
-                           <button onclick="multi2()" class="btn btn-primary">Возвратить подстрорку</button>
-                    
-                    <hr>
-                    
-                        Рeзультат: <span id="result_multi2"></span>
-			</p>
-		</div>
-		<div class="col-md-4">
-			<h2>
-				Конвертер ДНК - РНК
-			</h2>
-			<p>
-				<div class="form-group">
-                           <label for="inp_13">Введите ДНК-код:</label> 
-                           <input type="text" class="form-control" id="inp_13">
-                        </div>
-                           <button onclick="multi3()" class="btn btn-primary">Получить РНК-код:</button>
-                    
-                    <hr>
-                    
-                        Рeзультат: <span id="result_multi3"></span>
-			</p>
-			<div>
 	</div>
 </div>
 </div>
