@@ -39,12 +39,12 @@
 		multi_32 = parseInt(multi_32);
     
 	  function substr(multi_12, multi_22, multi_32) {
-     		const multi_22 = multi_2222 + 1;
+     		let multi_22 = multi_22 + 1;
 	if (multi_32 < 0) {
         multi_32 = 1;
       }
-      if (multi_22 < 0) {
-        multi_22 = 0;
+      if (multi_22 <= 0) {
+        multi_22 = 1;
       }
     if (multi_32 === 0 || multi_22 > multi_12.length) {
       return '';
