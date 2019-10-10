@@ -39,7 +39,6 @@
 		multi_32 = parseInt(multi_32);
     
 	  function substr(multi_12, multi_22, multi_32) {
-     		let multi_22 = multi_22 - 1;
 	if (multi_32 < 0) {
         multi_32 = 1;
       }
@@ -55,7 +54,7 @@
     if (typeof multi_12 === 'string' && typeof multi_22 === 'number' && typeof multi_32 === 'number') {
       let result2 = '';
       for (let i = 0; i < multi_32; i += 1) {
-      result2 += multi_12[multi_22 + i];
+      result2 += multi_12[multi_22 + i-1];
       }
       return result2;
     }
